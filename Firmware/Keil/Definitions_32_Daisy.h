@@ -11,7 +11,8 @@
 #define _Definitions_32_Daisy_h
 
 //PIN CONNECTIONS 
-#ifndef MBED
+/*
+// MBED: pin definitions are in PlatformDefs.h
   #define ADS_DRDY	9	// ADS data ready pin
   #define ADS_RST	4		// ADS reset pin
   #define BOARD_ADS	8 		// ADS chip select
@@ -20,7 +21,7 @@
   #define SD_SS	2  		// SD card chip select
   #define LIS3DH_SS	1 // LIS3DH chip select
   #define LIS3DH_DRDY	0	// LIS3DH data ready pin
-#endif
+*/
 #define BOTH_ADS	5	 // Slave Select Both ADS chips
 
 //ADS1299 SPI Command Definition Byte Assignments
@@ -55,11 +56,8 @@
 #define LOFF_FLIP 0x11
 #define LOFF_STATP 0x12
 #define LOFF_STATN 0x13
-#ifdef MBED
-  static const int GPIO = 0x14;
-#else
-  #define GPIO 0x14
-#endif
+//#define GPIO 0x14  // MBED: interfere with STM32 library
+static const int GPIO = 0x14;
 #define MISC1 0x15
 #define MISC2 0x16
 #define CONFIG4 0x17
@@ -132,11 +130,8 @@
 #define CLK_EN	5
 
 //LIS3DH
-#ifdef MBED
-  static const int READ_REG = 0x80; 
-#else
-  #define READ_REG		0x80
-#endif
+//#define READ_REG		0x80 // MBED: interfere with STM32 library
+static const int READ_REG = 0x80; 
 
 #define READ_MULTI		0x40
 

@@ -6,12 +6,9 @@
 #define _____OpenBCI_32_Daisy__
 
 
-#ifdef MBED
-  #include "PlatformDefs.h"
-#else
-  #include <DSPI.h>
-  #include <WProgram.h>
-#endif
+//#include <DSPI.h> // MBED: not needed
+//#include <WProgram.h> // MBED: not needed
+#include "PlatformDefs.h" // MBED: hardware emulation
 #include "Definitions_32_Daisy.h"
 
 
