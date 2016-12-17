@@ -2,9 +2,24 @@
 
 #include "PlatformUart.h"
 #include "mbed.h"
+#include "SerialBuffered.h"
 
-Serial uart(PA_9, PA_10, 115200); // Serial(PinName tx, PinName rx, const char *name=NULL, int baud = MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
 
+//Serial uart(PA_9, PA_10, 115200); // Serial(PinName tx, PinName rx, const char *name=NULL, int baud = MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
+SerialBuffered uart( 256, PA_9, PA_10, 115200 );
+/*
+// RX queue implementation -- TODO: remake with class templates
+#define QUEUE_SIZE 64
+
+typedef unsigned char byte;
+
+// this is template-like magic to define queue
+#include "queue.h"
+CREATE_QUEUE_TYPE_H(byte)
+CREATE_QUEUE_TYPE_C(byte)
+
+byteQueue rxQueue;
+*/
 
 int platformUart::write(int data)
 {
@@ -199,19 +214,17 @@ size_t platformUart::printFloat(double number, uint8_t digits)
 }
 
 
-extern void eventSerial();
+
+
 unsigned char rx_data;
-unsigned char rx_avalible;
 
 // Interupt Routine to read in data from serial port
 void Rx_interrupt() 
 {
-    while (uart.readable())
+    //while (uart.readable())
     {
       rx_data = uart.getc();
-      rx_avalible = 1;
-      
-      eventSerial();
+      //byteQueue_Put(&rxQueue, rx_data);
     }
 }
 
@@ -219,21 +232,19 @@ void Rx_interrupt()
 
 platformUart::platformUart()
 {
-  rx_data = 0;
-  rx_avalible = 0;
+	//byteQueue_Init(&rxQueue);
   
-  uart.attach(&Rx_interrupt, Serial::RxIrq);
+  //uart.attach(&Rx_interrupt, Serial::RxIrq);
 }
 
 unsigned char platformUart::available()
 {
-  return rx_avalible;
+  return uart.readable(); //!(byteQueue_IsEmpty(&rxQueue));
 }
 
 unsigned char platformUart::read()
 {
-  rx_avalible = 0;
-  return rx_data;
+  return uart.getc(); //byteQueue_Get(&rxQueue);
 }
 
 

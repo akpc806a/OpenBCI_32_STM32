@@ -310,7 +310,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>0</interw>
-            <Optim>2</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>0</OneElfS>
@@ -404,6 +404,11 @@
               <FileName>PlatformGPIO.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\PlatformGPIO.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>SerialBuffered.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\SerialBuffered.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -659,11 +664,6 @@
               <FileName>rtc_api.o</FileName>
               <FileType>3</FileType>
               <FilePath>mbed/TARGET_DISCO_L476VG/TOOLCHAIN_ARM_STD/rtc_api.o</FilePath>
-            </File>
-            <File>
-              <FileName>serial_api.o</FileName>
-              <FileType>3</FileType>
-              <FilePath>mbed/TARGET_DISCO_L476VG/TOOLCHAIN_ARM_STD/serial_api.o</FilePath>
             </File>
             <File>
               <FileName>sleep.o</FileName>
@@ -1109,6 +1109,11 @@
               <FileName>us_ticker.o</FileName>
               <FileType>3</FileType>
               <FilePath>mbed/TARGET_DISCO_L476VG/TOOLCHAIN_ARM_STD/us_ticker.o</FilePath>
+            </File>
+            <File>
+              <FileName>serial_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\mbed\TARGET_DISCO_L476VG\TOOLCHAIN_ARM_STD\serial_api.c</FilePath>
             </File>
           </Files>
         </Group>
