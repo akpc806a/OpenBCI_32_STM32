@@ -11,6 +11,39 @@
 #include <stddef.h>
 #include <stdint.h>
 
+
+class platformUart_Dummy {
+public:
+  int write(int data) { return 0; }
+  //int write(char* str);
+
+    size_t print(const char[]) { return 0; }
+    size_t print(char) { return 0; }
+    size_t print(unsigned char, int = DEC) { return 0; }
+    size_t print(int, int = DEC) { return 0; }
+    size_t print(unsigned int, int = DEC) { return 0; }
+    size_t print(long, int = DEC) { return 0; }
+    size_t print(unsigned long, int = DEC) { return 0; }
+    size_t print(double, int = 2) { return 0; }
+
+    size_t println(const char[]) { return 0; }
+    size_t println(char) { return 0; }
+    size_t println(unsigned char, int = DEC) { return 0; }
+    size_t println(int, int = DEC) { return 0; }
+    size_t println(unsigned int, int = DEC) { return 0; }
+    size_t println(long, int = DEC) { return 0; }
+    size_t println(unsigned long, int = DEC) { return 0; }
+    size_t println(double, int = 2) { return 0; }
+    size_t println(void) { return 0; }
+    
+    unsigned char available() { return 0; }
+    unsigned char read() { return 0; }
+		void begin(int baudrate) {};
+			
+		operator int() const { return 0; }
+  
+};
+
 class platformUart {
 public:
   int write(int data);
@@ -37,6 +70,7 @@ public:
     
     unsigned char available();
     unsigned char read();
+		void begin(int baudrate) {}
     
     platformUart();
     

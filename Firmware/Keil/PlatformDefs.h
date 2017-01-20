@@ -4,7 +4,7 @@
 #define boolean  unsigned char
 #define byte     unsigned char
   
-
+#define __USER_ISR
 
 #define HIGH 1
 #define LOW 0
@@ -25,6 +25,7 @@
 
 #include "PlatformUart.h"
 extern platformUart Serial0;
+extern platformUart_Dummy  Serial1;
 
 #include "PlatformSPI.h"
 
@@ -35,3 +36,15 @@ extern platformUart Serial0;
 #define writeDataToSDcard(x)
 #define setupSDcard(x) 1
 #define closeSDfile(x) 0
+
+#define setIntVector(x,y)
+#define setIntPriority(x,y,z)
+#define clearIntFlag(x)
+//#define setIntEnable(x)
+
+#define PORTA 0
+#define _EXTERNAL_4_IRQ 0
+
+#define millis() time(NULL)
+
+#define OPENBCI_SOP_SYMBOL 0xA0//'A'

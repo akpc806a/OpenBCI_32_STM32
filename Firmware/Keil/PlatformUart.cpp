@@ -7,19 +7,7 @@
 
 //Serial uart(PA_9, PA_10, 115200); // Serial(PinName tx, PinName rx, const char *name=NULL, int baud = MBED_CONF_PLATFORM_DEFAULT_SERIAL_BAUD_RATE);
 SerialBuffered uart( 256, PA_9, PA_10, 115200 );
-/*
-// RX queue implementation -- TODO: remake with class templates
-#define QUEUE_SIZE 64
 
-typedef unsigned char byte;
-
-// this is template-like magic to define queue
-#include "queue.h"
-CREATE_QUEUE_TYPE_H(byte)
-CREATE_QUEUE_TYPE_C(byte)
-
-byteQueue rxQueue;
-*/
 
 int platformUart::write(int data)
 {
@@ -251,3 +239,4 @@ unsigned char platformUart::read()
 
 
 platformUart Serial0;
+platformUart_Dummy Serial1;

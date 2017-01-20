@@ -19,5 +19,6 @@
 
 void digitalWrite(int pin, unsigned char value);
 unsigned char digitalRead(int pin);
+void setIntEnable(int x);
 
 #endif

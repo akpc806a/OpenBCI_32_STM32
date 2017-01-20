@@ -7,7 +7,7 @@ SPI spi_adc(PA_7, PA_6, PA_5); // PinName mosi, PinName miso, PinName sclk, PinN
 
 void DSPI0::begin()
 {
-  
+
 }
 
 void DSPI0::setSpeed(int speed_hz)

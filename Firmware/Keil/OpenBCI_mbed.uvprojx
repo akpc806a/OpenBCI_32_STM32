@@ -386,11 +386,6 @@
               <FilePath>mbed_config.h</FilePath>
             </File>
             <File>
-              <FileName>OpenBCI_32_Daisy.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\OpenBCI_32_Daisy.cpp</FilePath>
-            </File>
-            <File>
               <FileName>PlatformSPI.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\PlatformSPI.cpp</FilePath>
@@ -409,6 +404,11 @@
               <FileName>SerialBuffered.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\SerialBuffered.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>OpenBCI_32bit_Library.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\OpenBCI_32bit_Library.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -575,6 +575,11 @@
         <Group>
           <GroupName>TOOLCHAIN_ARM_STD</GroupName>
           <Files>
+            <File>
+              <FileName>serial_api.o</FileName>
+              <FileType>3</FileType>
+              <FilePath>mbed/TARGET_DISCO_L476VG/TOOLCHAIN_ARM_STD/serial_api.o</FilePath>
+            </File>
             <File>
               <FileName>analogin_api.o</FileName>
               <FileType>3</FileType>
@@ -1109,11 +1114,6 @@
               <FileName>us_ticker.o</FileName>
               <FileType>3</FileType>
               <FilePath>mbed/TARGET_DISCO_L476VG/TOOLCHAIN_ARM_STD/us_ticker.o</FilePath>
-            </File>
-            <File>
-              <FileName>serial_api.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\mbed\TARGET_DISCO_L476VG\TOOLCHAIN_ARM_STD\serial_api.c</FilePath>
             </File>
           </Files>
         </Group>

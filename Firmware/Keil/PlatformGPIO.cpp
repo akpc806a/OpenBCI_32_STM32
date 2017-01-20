@@ -9,7 +9,7 @@ DigitalOut sd_SS(SD_SS);
 DigitalOut daisy_SS(DAISY_ADS);
 DigitalOut accel_SS(LIS3DH_SS);
 
-DigitalIn adc_ready(ADS_DRDY);
+InterruptIn adc_ready(ADS_DRDY);
 DigitalIn accel_ready(LIS3DH_DRDY);
 
 void digitalWrite(int pin, unsigned char value)
@@ -37,4 +37,12 @@ unsigned char digitalRead(int pin)
   else
   if (pin == LIS3DH_DRDY)
     return accel_ready;
+}
+
+// external interrupt as ready signal
+extern void ADS_DRDY_Service();
+
+void setIntEnable(int x)
+{
+  adc_ready.fall(&ADS_DRDY_Service);
 }
